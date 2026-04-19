@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EduResult - Marks Entry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container no-print">
+        <div class="card">
+            <h2 id="setupTitle">Student Marks Entry</h2>
+            <div class="student-meta">
+                <input type="text" id="studentName" placeholder="Student Full Name">
+                <input type="text" id="rollNo" placeholder="Roll Number">
+            </div>
+            
+            <div id="dynamicMarksInputs">
+                </div>
+
+            <button class="print-btn" onclick="processAndPrint()">Generate & Print Result</button>
+            <button class="back-btn" onclick="window.location.href='setup.html'">Reset Setup</button>
+        </div>
+    </div>
+
+    <div id="paperResult" class="report-card">
+        <div class="report-header">
+            <h1 id="resSchoolName">SCHOOL NAME</h1>
+            <h3>OFFICIAL PROGRESS REPORT</h3>
+            <p>Academic Year: 2025-2026</p>
+        </div>
+
+        <div class="res-student-info">
+            <p><strong>Name:</strong> <span id="resName"></span></p>
+            <p><strong>Roll No:</strong> <span id="resRoll"></span></p>
+        </div>
+
+        <table id="resTable">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Max Marks</th>
+                    <th>Obtained Marks</th>
+                </tr>
+            </thead>
+            <tbody id="resTableBody">
+                </tbody>
+        </table>
+
+        <div class="res-summary">
+            <p><strong>Total Marks:</strong> <span id="resTotal"></span> / <span id="resGrandMax"></span></p>
+            <p><strong>Percentage:</strong> <span id="resPercent"></span>%</p>
+            <p><strong>Final Grade:</strong> <span id="resGrade"></span></p>
+        </div>
+
+        <div class="signature-section">
+            <div class="sig-box">Class Teacher</div>
+            <div class="sig-box">Principal</div>
+        </div>
+    </div>
+
+    <script src="marks.js"></script>
+</body>
+</html>

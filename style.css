@@ -1,0 +1,184 @@
+/* --- 1. GLOBAL STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #65b499;
+    color: #333;
+}
+
+/* --- 2. NAVIGATION BAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: #2c3e50;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.login-btn {
+    background: #3498db;
+    padding: 10px 25px !important;
+    border-radius: 25px;
+}
+
+.login-btn:hover { background: #2980b9; }
+
+/* --- 3. HOME PAGE SLIDER & HERO --- */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    width: 300%; /* Adjust based on number of slides */
+    height: 100%;
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(40%); /* Makes text pop */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+}
+
+.hero-overlay h1 { font-size: 3.5rem; margin-bottom: 20px; text-transform: uppercase; }
+.hero-overlay p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+
+/* --- 4. CONTAINERS & CARDS (For Setup & Marks Entry) --- */
+.container {
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h2 { color: #2c3e50; margin-bottom: 20px; border-left: 5px solid #3498db; padding-left: 15px; }
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    border: none;
+}
+
+.next-btn, .print-btn {
+    width: 100%;
+    background: #27ae60;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+}
+
+.next-btn:hover, .print-btn:hover { background: #219150; transform: translateY(-2px); }
+
+/* --- 5. MARKS ENTRY SPECIFICS --- */
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.input-row label { font-weight: 600; color: #555; }
+
+/* --- 6. THE REPORT CARD (Screen View: Hidden) --- */
+#paperResult {
+    display: none; /* Only visible in Print or if you remove this for testing */
+}
+
+/* --- 7. THE PRINT MAGIC (A4 Paper Styling) --- */
+@media print {
+    body { background: white; }
+    .no-print, .navbar, button { display: none !important; }
+
+    #paperResult {
+        display: block !important;
+        width: 100%;
+        padding: 40px;
+        border: 2px solid #333;
+        font-family: 'Times New Roman', serif;
+    }
+
+    .report-header { text-align: center; margin-bottom: 40px; border-bottom: 3px double #333; padding-bottom: 10px; }
+    .report-header h1 { font-size: 2.2rem; margin-bottom: 5px; }
+
+    table { width: 100%; border-collapse: collapse; margin: 30px 0; }
+    th, td { border: 1px solid black; padding: 12px; text-align: center; font-size: 1.1rem; }
+    th { background-color: #f2f2f2 !important; -webkit-print-color-adjust: exact; }
+
+    .res-summary { margin-top: 30px; font-size: 1.2rem; line-height: 1.8; }
+    
+    .signature-section { 
+        display: flex; 
+        justify-content: space-between; 
+        margin-top: 80px; 
+    }
+    
+    .sig-box { 
+        border-top: 1px solid black; 
+        width: 180px; 
+        text-align: center; 
+        padding-top: 10px; 
+        font-weight: bold; 
+    }
+}
